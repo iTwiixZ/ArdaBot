@@ -1,8 +1,3 @@
-<!--
-  | Website designed by JstnLT (https://jstnlt.my.id)
-  | This project is open source: https://github.com/JastinXyz/discord-bot-landing-page-web
--->
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -11,7 +6,6 @@
       name="description"
       content="Arda est un bot Discord pour Path of Titans. Arda est conçu pour enrichir votre expérience de jeu sur Path of Titans en offrant une variété de fonctionnalités utiles directement sur votre serveur Discord."
     />
-
     <meta name="language" content="fr" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Arda - Bot discord pour Path of Titans</title>
@@ -31,7 +25,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
     <script src="assets/js/jquery-3.6.0.js"></script>
   </head>
   <body>
@@ -50,15 +43,7 @@
       <div class="navbar-brand mt-2 mb-2">
         <a class="navbar-item" href="#">
           <strong>Arda</strong>
-
-          <!-- or if you want to use image -->
-          <!-- <img
-            src="image link or path"
-            width="112"
-            height="28"
-          /> -->
         </a>
-
         <a
           role="button"
           class="navbar-burger has-text-white"
@@ -71,11 +56,9 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <a href="#" class="navbar-item is-tab"> Accueil </a>
-
           <a
             href="https://arda.gitbook.io/arda/"
             target="_blank"
@@ -83,6 +66,13 @@
           >
             Documentation
           </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <button id="lang-switch" class="button is-light">English</button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -94,10 +84,16 @@
         <div class="">
           <div class="columns">
             <div class="column mr-6 mt-12" data-aos="fade-up">
-              <p class="title has-text-white has-text-weight-bold">
+              <p
+                id="hero-title"
+                class="title has-text-white has-text-weight-bold"
+              >
                 Découvrez Arda, votre nouveau bot Discord pour Path of Titans.
               </p>
-              <p class="subtitle has-text-grey-light is-size-6 mt-3">
+              <p
+                id="hero-subtitle"
+                class="subtitle has-text-grey-light is-size-6 mt-3"
+              >
                 Arda est conçu pour enrichir votre expérience de jeu sur Path of
                 Titans en offrant une variété de fonctionnalités utiles
                 directement sur votre serveur Discord. Arda propose une banque
@@ -121,7 +117,7 @@
                   <strong>Documentation</strong>
                 </a>
                 <a class="button is-tab">
-                  <strong>Version 0.1</strong>
+                  <strong>Version 0.2</strong>
                 </a>
               </div>
             </div>
@@ -129,7 +125,7 @@
               <img
                 class="image is-rounded has-image-centered vert-move mt-4"
                 src="assets/img/iconbot.jpg"
-                alt="hero image"
+                alt="arda bot"
                 style="width: 20rem"
               />
             </div>
@@ -161,7 +157,6 @@
             <i class="fa-brands fa-github"></i>
           </a>
         </div>
-
         <p>
           <span class="has-text-weight-bold">Arda</span>
           <br />
@@ -169,7 +164,6 @@
           <br />
           <span class="has-text-weight-bold">Développé par iTwiixZ</span>
         </p>
-
         <p style="letter-spacing: 0.1em" class="is-uppercase">
           Site conçu par
           <a
@@ -188,8 +182,54 @@
       </div>
     </footer>
     <!-- Footer Section End -->
+
     <script>
       document.getElementById("cp-year").textContent = new Date().getFullYear();
+
+      const translations = {
+        en: {
+          "hero-title":
+            "Discover Arda, your new Discord bot for Path of Titans.",
+          "hero-subtitle":
+            "Arda is designed to enrich your gaming experience on Path of Titans by offering a variety of useful features directly on your Discord server. Arda offers a virtual bank usable for Path of Titans, a system to highlight the contents of your server's community and much more.",
+          "add-arda": "Add Arda",
+          documentation: "Documentation",
+          version: "Version 0.2",
+        },
+        fr: {
+          "hero-title":
+            "Découvrez Arda, votre nouveau bot Discord pour Path of Titans.",
+          "hero-subtitle":
+            "Arda est conçu pour enrichir votre expérience de jeu sur Path of Titans en offrant une variété de fonctionnalités utiles directement sur votre serveur Discord. Arda propose une banque virtuel utilisable pour Path of Titans, un système de mise en avant des contenus de la communauté de votre serveur et bien plus.",
+          "add-arda": "Ajouter Arda",
+          documentation: "Documentation",
+          version: "Version 0.2",
+        },
+      };
+
+      document
+        .getElementById("lang-switch")
+        .addEventListener("click", function () {
+          const currentLang =
+            document.documentElement.lang === "fr" ? "en" : "fr";
+          document.documentElement.lang = currentLang;
+          updateTranslations(currentLang);
+        });
+
+      function updateTranslations(lang) {
+        document.getElementById("hero-title").textContent =
+          translations[lang]["hero-title"];
+        document.getElementById("hero-subtitle").textContent =
+          translations[lang]["hero-subtitle"];
+        document.querySelector("a.button.is-info strong").textContent =
+          translations[lang]["add-arda"];
+        document.querySelector("a.button.is-light strong").textContent =
+          translations[lang]["documentation"];
+        document.querySelector("a.button.is-tab strong").textContent =
+          translations[lang]["version"];
+        document.getElementById("lang-switch").textContent =
+          lang === "fr" ? "English" : "Français";
+      }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
   if ($navbarBurgers.length > 0) {
-    $navbarBurgers.forEach( el => {
+    $navbarBurgers.forEach(el => {
       el.addEventListener('click', () => {
         const target = el.dataset.target;
         const $target = document.getElementById(target);
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-$(document).ready(function() {
-  $(".navbar-burger").click(function() {
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
+$(document).ready(function () {
+  $(".navbar-burger").click(function () {
+    $(".navbar-burger").toggleClass("is-active");
+    $(".navbar-menu").toggleClass("is-active");
   });
 });
 
@@ -69,3 +69,5 @@ btn.on("click", function (e) {
 
 // copyright year
 document.getElementById("cp-year").innerHTML = new Date().getFullYear()
+
+// add traduction for the website
